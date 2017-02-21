@@ -8,7 +8,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 server.listen(3000);
 
-app.use(express.static('public'));
+app.use(express.static('src/client'));
 app.use(bodyParser.json());
 
 var Twit = require('twit');
@@ -17,10 +17,6 @@ var T = new Twit({
   consumer_secret:      'Ah03sBHpCWD51n0t5gvO6nKv5mx06JazdheL1ArMnb7xEJ7qFK',
   access_token:         '1149004722-aXRhWGNykNLm9NGX7qN5MqD9OMONxMJVucpB63N',
   access_token_secret:  'qTxVZZZhVYGJSfXNXj4L4bTvBuMuANEnrIEDRYhLa6dLJ'
-});
-
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.use(function(req, res, next) {
